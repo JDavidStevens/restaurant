@@ -3,7 +3,8 @@ import {Router} from '@reach/router';
 
 import './App.css';
 import Homepage from './components/homepage/Homepage';
-import Drinks from './components/drinks/Drinks';
+import Guests from './components/guests/Guests';
+import Menu from './components/menu/Menu';
 
 class App extends Component {
   render() {
@@ -11,7 +12,8 @@ class App extends Component {
       <div className="App">
       <Router>
         <Homepage path="/"/>
-        <Drinks path="/beverages" />
+        <Guests path="/guest"/>
+        <Menu path="menu"/>
       </Router>
         
       </div>
