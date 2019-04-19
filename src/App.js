@@ -5,6 +5,7 @@ import './App.css';
 import Homepage from './components/homepage/Homepage';
 import Guests from './components/guests/Guests';
 import Menu from './components/menu/Menu';
+import Confirmation from './components/confirmation/Confirmation';
 
 class App extends Component {
   render() {
@@ -13,7 +14,8 @@ class App extends Component {
       <Router>
         <Homepage path="/"/>
         <Guests path="/guest"/>
-        <Menu path="menu"/>
+        <Menu path="/menu"/>
+        <Confirmation path ='/confirmation'/>
       </Router>
         
       </div>

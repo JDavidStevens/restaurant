@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Guests extends Component {
+class Dessert extends Component {
     state = {  }
     render() { 
         return ( 
@@ -11,4 +11,4 @@ class Guests extends Component {
     }
 }
  
-export default Guests;
+export default Dessert;
