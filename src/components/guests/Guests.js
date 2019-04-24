@@ -1,39 +1,24 @@
 import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
+import { Link } from '@reach/router';
 // import styled from '@emotion/styled';
 
-@inject("GuestNumber")
+@inject("Store")
 @observer
 
 class Guests extends Component {
-//     state={
-//         number: 1
-//     }
-
-//    increment = () =>{
-//        let {number} = this.state;
-//        if(this.state.number<20){
-//        this.setState({number: number+1})}
-//        else{
-//            return;
-//        }
-//    } 
-//    decrement = () =>{
-//        let {number} = this.state;
-//        if(this.state.number>1){
-//        this.setState({number: number-1})}
-//        else{
-//            return;
-//        }
-//    } 
     
     render() { 
-        console.log(`number = ${this.state.number}`)
+        const {number, increment, decrement} = this.props.Store;
         return ( 
             <div>
-                <button onClick={this.increment}>+</button>
-                <input className="guest-input" type="text" value={this.props.GuestNumber.number} onChange={()=>this.state.number}/>
-                <button onClick={this.decrement}>-</button>
+                <h1>NUMBER OF GUESTS</h1>
+                <button onClick={increment}>+</button>
+                <input className="guest-input" value={number} onChange={()=>this.state.number} readOnly="true"/>
+                <button onClick={decrement}>-</button>
+                <div>
+                    <Link to="/menu">Next</Link>
+                </div>
             </div>
          );
     }

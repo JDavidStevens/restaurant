@@ -24,16 +24,12 @@ class Drinks extends Component {
         return ( 
             <div className="beverages">
                 <div className="beverage-options-wrapper">
-                <h1>Beverages</h1>
+                Drinks
                 <div>
-                   {/* {bevarages}  */}
+                   {/* {beverages}  */}
                 </div>
                 </div>
-                <div className='my-selection-wrapper'>
-                    <h1>My Selection(s)</h1>
-                    {/* <div>{myDrinks}</div> */}
-                </div>
-                <Link to={'/appetizers'}>NEXT</Link>
+                
             </div>
          );
     }

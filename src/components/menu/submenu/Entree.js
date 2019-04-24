@@ -5,7 +5,7 @@ class Entree extends Component {
     render() { 
         return ( 
         <div>
-
+            Entrees
         </div> );
     }
 }
