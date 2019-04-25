@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
-import {Link} from '@reach/router';
+// import {Link} from '@reach/router';
+// import axios from 'axios';
+
 import Drinks from './submenu/Drinks';
 import Entree from './submenu/Entree';
 import Dessert from './submenu/Dessert';
@@ -9,6 +11,10 @@ import Dessert from './submenu/Dessert';
 @observer
 
 class Menu extends Component {
+    
+    // componentDidMount(){
+    //     axios.get("/api/menu")
+    // }
     
     render() { 
         const {number, order, bevMenu, entreeMenu, dessertMenu, beverages, entrees, desserts} = this.props.Store;

@@ -12,6 +12,10 @@ app.use(express.static(`${__dirname}/../build`))
 
 let {SERVER_PORT} = process.env;
 
+// app.get('/api/menu', (req,res)=>{
+
+// })
+
 app.listen(SERVER_PORT, ()=>{
     console.log(`Server is listening on port ${SERVER_PORT}`)
 })
