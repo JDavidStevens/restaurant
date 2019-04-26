@@ -76,9 +76,12 @@ export class Store {
        this.toggleSalad = !this.toggleSalad
    } 
 
-   //Drink selection action
+   //Item selection action
    @action handleAddDrink = (drink) =>{
        this.guest.drink.push(drink)
+   }
+   @action handleAddBurger = (burger) =>{
+       this.guest.entree.push(burger)
    }
     
 }
