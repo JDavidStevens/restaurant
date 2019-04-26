@@ -3,6 +3,10 @@ import Burgers from './meals/Burgers';
 import Sandwiches from './meals/Sandwiches';
 import Platters from './meals/Platters';
 import Salads from './meals/Salads';
+import { inject, observer } from 'mobx-react';
+
+@inject('Store')
+@observer
 
 class Entree extends Component {
     
