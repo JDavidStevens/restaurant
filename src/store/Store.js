@@ -1,4 +1,4 @@
-import {observable, action, computed} from 'mobx';
+import {observable, action} from 'mobx';
 
 
 export class Store {
@@ -9,11 +9,19 @@ export class Store {
         entree: [],
         dessert: []
     }
-    @observable beverages=false
-    @observable entrees=false
-    @observable desserts=false
+    @observable toggleBeverages=false
+    @observable toggleEntrees=false
+    @observable toggleDesserts=false
 
     @observable order = [];
+
+    @observable beverages = [];
+    @observable platters =[];
+    @observable salads =[];
+    @observable burgers =[];
+    @observable sandwiches =[];
+    @observable desserts =[];
+
 
     @action increment = () =>{
         if(this.number<20){
@@ -32,15 +40,15 @@ export class Store {
     }
 
    @action bevMenu = () =>{
-       this.beverages = !this.beverages
+       this.toggleBeverages = !this.toggleBeverages
    } 
 
    @action entreeMenu = () =>{
-       this.entrees = !this.entrees
+       this.toggleEntrees = !this.toggleEntrees
    } 
 
    @action dessertMenu = () =>{
-       this.desserts = !this.desserts
+       this.toggleDesserts = !this.toggleDesserts
    } 
 
     
