@@ -51,6 +51,7 @@ export class Store {
         }
     }
 
+    
     // Main menu toggle actions
    @action bevMenu = () =>{
        this.toggleBeverages = !this.toggleBeverages

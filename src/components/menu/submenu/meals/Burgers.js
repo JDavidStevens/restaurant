@@ -11,22 +11,6 @@ class Burgers extends Component {
     render() { 
         const {burgers, handleAddBurger} = this.props.Store;
         
-        // const burger1 = [];
-        // const burger2 = [];
-        // const burger3 = [];
-        
-        
-        // for(let i = 0; i> burgers.length; i++){
-        //     if(i<=5){
-        //         burger1.push(burgers[i])
-        //     }else if(i>5 && i<= 11){
-        //         burger2.push(burgers[i])
-        //     }else{
-        //         burger3.push(burgers[i])
-        //     }
-        // }
-        
-
         let burgerSelection = burgers.map((e,index)=>{
             return(
                 <div key={index}>
@@ -40,20 +24,6 @@ class Burgers extends Component {
             )
         })
 
-        // const burger1= [];
-        // const burger2= [];
-        // const burger3= [];
-
-        // for(let i = 0; i> burgerSelection.length; i++){
-        //     if(burgerSelection.indexOf(burgerSelection[i])<=5){
-        //         burger1.push(burgerSelection[i])
-        //     }else if(i>5 && i<= 11){
-        //         burger2.push(burgerSelection[i])
-        //     }else{
-        //         burger3.push(burgerSelection[i])
-        //     }
-        // }
-        // console.log('burger1',burger1)
         return ( 
             <div>
                 <h1>Burgers</h1>
