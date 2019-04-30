@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import {Carousel} from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {inject, observer} from 'mobx-react';
 
 @inject("Store")
 @observer
 
 class Burgers extends Component {
+
     
     render() { 
+        
         const {burgers, handleAddBurger} = this.props.Store;
         
         let burgerSelection = burgers.map((e,index)=>{
@@ -26,15 +26,7 @@ class Burgers extends Component {
 
         return ( 
             <div>
-                <h1>Burgers</h1>
-                {/* <Carousel
-                showThumbs={false}
-                infiniteLoop={true}
-                showStatus={true}
-                showIndicators={true}
-                >
-                
-                </Carousel> */}
+                <h1>Burgers</h1>                
                 {burgerSelection}
                 </div>
          );
