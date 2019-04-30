@@ -84,6 +84,9 @@ export class Store {
    @action handleAddBurger = (burger) =>{
        this.guest.entree.push(burger)
    }
+   @action handleAddBurger = (sandwich) =>{
+       this.guest.entree.push(sandwich)
+   }
     
 }
 

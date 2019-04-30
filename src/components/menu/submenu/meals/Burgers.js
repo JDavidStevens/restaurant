@@ -25,10 +25,9 @@ class Burgers extends Component {
         })
 
         return ( 
-            <div>
-                <h1>Burgers</h1>                
+            <div>               
                 {burgerSelection}
-                </div>
+            </div>
          );
     }
 }
