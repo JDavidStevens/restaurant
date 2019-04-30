@@ -15,15 +15,13 @@ class Menu extends Component {
         menu: this.props.Store.menu
     }
     componentDidMount(){
-        const {beverages, platters, salads,burgers, sandwiches, desserts} = this.props.Store; 
+        const {beverages, salads, burgers, sandwiches, desserts} = this.props.Store; 
         axios.get("/api/menu").then(res=>{
             
             const menu = res.data;
             menu.map(e=>{
                 if(e.type==="drink"){
                      beverages.push(e)
-                }else if(e.type==="platter"){
-                    platters.push(e)
                 }else if(e.type==="salad"){
                     salads.push(e)
                 }else if(e.type==="burger"){

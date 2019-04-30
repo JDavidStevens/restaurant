@@ -23,13 +23,11 @@ export class Store {
     // Entree menu toggle state
     @observable toggleBurger=false
     @observable toggleSandwich=false
-    @observable togglePlatter=false
     @observable toggleSalad=false
 
 
     // Info from DB separated by type
     @observable beverages = [];
-    @observable platters =[];
     @observable salads =[];
     @observable burgers =[];
     @observable sandwiches =[];
@@ -69,10 +67,7 @@ export class Store {
    } 
    @action sandwichMenu = () =>{
        this.toggleSandwich = !this.toggleSandwich
-   } 
-   @action platterMenu = () =>{
-       this.togglePlatter = !this.togglePlatter
-   } 
+   }  
    @action saladMenu = () =>{
        this.toggleSalad = !this.toggleSalad
    } 
@@ -84,7 +79,7 @@ export class Store {
    @action handleAddBurger = (burger) =>{
        this.guest.entree.push(burger)
    }
-   @action handleAddBurger = (sandwich) =>{
+   @action handleAddSandwich = (sandwich) =>{
        this.guest.entree.push(sandwich)
    }
     
