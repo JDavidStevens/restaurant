@@ -99,13 +99,14 @@ export class Store {
    }
 
    @action handleAddOrder = () =>{
-       this.order.push(this.guest).then(()=>{
-           this.guest.guest=1
-           this.guest.drink=[]
-           this.guest.entree = [];
-           this.guest.sideOrder=[];
-           this.guest.dessert=[]
-       })
+       this.order.push(this.guest);
+       this.guest={
+            guest: 1,
+            drink: [],
+            entree: [],
+            sideOrder: [],
+            dessert: []
+                }
    }
     
 }

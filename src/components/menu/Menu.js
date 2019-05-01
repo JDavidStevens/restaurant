@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
-// import {Link} from '@reach/router';
+import {Link} from '@reach/router';
 import axios from 'axios';
 
 import Drinks from './submenu/Drinks';
@@ -38,7 +38,8 @@ class Menu extends Component {
     }
     
     render() { 
-        
+        // console.log('Guest',this.props.Store.guest)
+        // console.log('Order',this.props.Store.order)
         const {number, order, bevMenu, entreeMenu, sidesMenu, dessertMenu, toggleBeverages, toggleEntrees, toggleSides, toggleDesserts, handleAddOrder} = this.props.Store;
         
         let guest = order.length +1 
@@ -67,7 +68,7 @@ class Menu extends Component {
                 </div>
 
 
-                {guest===number?<button>Proceed to Checkout</button>:<button onClick={handleAddOrder}>Next Guest</button>}
+                {guest===number?<button onClick={handleAddOrder}><Link to='/confirmation'>Proceed to Checkout</Link></button>:<button onClick={handleAddOrder}>Next Guest</button>}
             </div>
          );
     }
