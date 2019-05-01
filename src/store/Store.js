@@ -6,7 +6,6 @@ export class Store {
     
     // Current guest order
     @observable guest = {
-        guest: 1,
         drink : [],
         entree: [],
         sideOrder: [],
@@ -101,7 +100,6 @@ export class Store {
    @action handleAddOrder = () =>{
        this.order.push(this.guest);
        this.guest={
-            guest: 1,
             drink: [],
             entree: [],
             sideOrder: [],

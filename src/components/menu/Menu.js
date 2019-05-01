@@ -41,7 +41,7 @@ class Menu extends Component {
         // console.log('Guest',this.props.Store.guest)
         // console.log('Order',this.props.Store.order)
         const {number, order, bevMenu, entreeMenu, sidesMenu, dessertMenu, toggleBeverages, toggleEntrees, toggleSides, toggleDesserts, handleAddOrder} = this.props.Store;
-        
+        console.log(`number:${typeof number}`)
         let guest = order.length +1 
         
         return ( 
