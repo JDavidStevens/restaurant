@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
 
 class Dessert extends Component {
-    state = {  }
+    
     render() { 
+        const {desserts, handleAddDessert} = this.props.Store;
+        
+        let dessertSelection = desserts.map((e,index)=>{
+            return(
+                <div key={index}>
+                    <img src='' alt=''/>
+                    <div>
+                        <h3>{e.item}</h3>
+                        <p>{e.description}</p>
+                    </div>
+                    <button onClick={()=>handleAddDessert(e.item)}>+</button>
+                </div>
+            )
+        })
+
         return ( 
-            <div>
-                Dessert
+            <div>               
+                {dessertSelection}
             </div>
          );
     }

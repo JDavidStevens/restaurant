@@ -6,6 +6,7 @@ import axios from 'axios';
 import Drinks from './submenu/Drinks';
 import Entree from './submenu/Entree';
 import Dessert from './submenu/Dessert';
+import Sides from './submenu/Sides';
 
 @inject("Store")
 @observer
@@ -15,7 +16,7 @@ class Menu extends Component {
         menu: this.props.Store.menu
     }
     componentDidMount(){
-        const {beverages, salads, burgers, sandwiches, desserts} = this.props.Store; 
+        const {beverages, salads, burgers, sandwiches, sides, desserts} = this.props.Store; 
         axios.get("/api/menu").then(res=>{
             
             const menu = res.data;
@@ -28,6 +29,8 @@ class Menu extends Component {
                     burgers.push(e)
                 }else if(e.type==="sandwich"){
                     sandwiches.push(e)
+                }else if(e.type==="side"){
+                    sides.push(e)
                 }else if(e.type==="dessert"){
                     desserts.push(e)
                 }
@@ -37,7 +40,7 @@ class Menu extends Component {
     }
     
     render() { 
-        const {number, order, bevMenu, entreeMenu, dessertMenu, toggleBeverages, toggleEntrees, toggleDesserts,menu} = this.props.Store;
+        const {number, order, bevMenu, entreeMenu, sidesMenu, dessertMenu, toggleBeverages, toggleEntrees, toggleSides, toggleDesserts, menu} = this.props.Store;
         let guest = order.length +1 
         
         return ( 
@@ -52,6 +55,10 @@ class Menu extends Component {
                     <div>
                     <button onClick={entreeMenu}>Entrees</button>
                     {toggleEntrees===true?<Entree/>:null}
+                    </div>
+                    <div>
+                    <button onClick={sidesMenu}>Sides</button>
+                    {toggleSides===true?<Sides/>:null}
                     </div>
                     <div>
                     <button onClick={dessertMenu}>Desserts</button>

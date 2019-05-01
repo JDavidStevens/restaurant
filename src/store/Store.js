@@ -9,6 +9,7 @@ export class Store {
         guest: 1,
         drink : [],
         entree: [],
+        sideOrder: [],
         dessert: []
     }
     
@@ -18,6 +19,7 @@ export class Store {
     // Main menu toggle state
     @observable toggleBeverages=false
     @observable toggleEntrees=false
+    @observable toggleSides=false
     @observable toggleDesserts=false
 
     // Entree menu toggle state
@@ -31,6 +33,7 @@ export class Store {
     @observable salads =[];
     @observable burgers =[];
     @observable sandwiches =[];
+    @observable sides = [];
     @observable desserts =[];
 
     //Guest Counter- Guest Page
@@ -57,6 +60,9 @@ export class Store {
     @action entreeMenu = () =>{
        this.toggleEntrees = !this.toggleEntrees
    } 
+    @action sidesMenu = () =>{
+       this.toggleSides = !this.toggleSides
+   } 
    @action dessertMenu = () =>{
        this.toggleDesserts = !this.toggleDesserts
    } 
@@ -81,6 +87,12 @@ export class Store {
    }
    @action handleAddSandwich = (sandwich) =>{
        this.guest.entree.push(sandwich)
+   }
+   @action handleAddSalad = (salad) =>{
+       this.guest.entree.push(salad)
+   }
+   @action handleAddSide = (side) =>{
+       this.sideOrder.entree.push(side)
    }
     
 }

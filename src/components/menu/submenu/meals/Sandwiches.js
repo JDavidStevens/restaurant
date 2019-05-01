@@ -5,7 +5,7 @@ import {inject, observer} from 'mobx-react';
 @observer
 
 class Sandwiches extends Component {
-    state = {  }
+    
     render() { 
         const {sandwiches, handleAddSandwich} = this.props.Store;
         
