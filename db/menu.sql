@@ -1,1 +1,1 @@
-select * from menu;
+select * from menu order by id asc;

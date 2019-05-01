@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import {inject, observer} from 'mobx-react';
+
+@inject("Store")
+@observer
 
 class Salads extends Component {
-    state = {  }
+    
     render() { 
         const {salads, handleAddSalad} = this.props.Store;
         

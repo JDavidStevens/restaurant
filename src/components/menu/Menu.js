@@ -12,9 +12,7 @@ import Sides from './submenu/Sides';
 @observer
 
 class Menu extends Component {
-    state={
-        menu: this.props.Store.menu
-    }
+    
     componentDidMount(){
         const {beverages, salads, burgers, sandwiches, sides, desserts} = this.props.Store; 
         axios.get("/api/menu").then(res=>{
@@ -40,13 +38,15 @@ class Menu extends Component {
     }
     
     render() { 
-        const {number, order, bevMenu, entreeMenu, sidesMenu, dessertMenu, toggleBeverages, toggleEntrees, toggleSides, toggleDesserts, menu} = this.props.Store;
+        
+        const {number, order, bevMenu, entreeMenu, sidesMenu, dessertMenu, toggleBeverages, toggleEntrees, toggleSides, toggleDesserts, handleAddOrder} = this.props.Store;
+        
         let guest = order.length +1 
         
         return ( 
             <div>
                 <h1>Guest {guest}</h1>
-                <h1>{menu}</h1>
+                
                 <div>
                     <div>
                     <button onClick={bevMenu}>Drinks</button>
@@ -67,7 +67,7 @@ class Menu extends Component {
                 </div>
 
 
-                {guest===number?<button>Proceed to Checkout</button>:<button>Next Guest</button>}
+                {guest===number?<button>Proceed to Checkout</button>:<button onClick={handleAddOrder}>Next Guest</button>}
             </div>
          );
     }

@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {inject, observer} from 'mobx-react';
+
+@inject("Store")
+@observer
 
 class Dessert extends Component {
     

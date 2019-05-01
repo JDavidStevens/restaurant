@@ -92,7 +92,20 @@ export class Store {
        this.guest.entree.push(salad)
    }
    @action handleAddSide = (side) =>{
-       this.sideOrder.entree.push(side)
+       this.guest.sideOrder.push(side)
+   }
+   @action handleAddDessert = (treat) =>{
+       this.guest.dessert.push(treat)
+   }
+
+   @action handleAddOrder = () =>{
+       this.order.push(this.guest).then(()=>{
+           this.guest.guest=1
+           this.guest.drink=[]
+           this.guest.entree = [];
+           this.guest.sideOrder=[];
+           this.guest.dessert=[]
+       })
    }
     
 }

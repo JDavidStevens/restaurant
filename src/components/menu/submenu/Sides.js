@@ -1,4 +1,8 @@
 import React, { Component} from 'react';
+import {inject, observer} from 'mobx-react';
+
+@inject("Store")
+@observer
 
 class Sides extends Component {
     
@@ -7,9 +11,10 @@ class Sides extends Component {
         const {sides,handleAddSide} = this.props.Store;
         let sideSelection= sides.map((e,index)=>{
             return (
-                <div key={index} onClick={()=>handleAddSide(e.item)}>
+                <div key={index}>
                 <h2>{e.item}</h2>
                 <img src='' alt=''/>
+                <button onClick={()=>handleAddSide(e.item)}>+</button>
                 </div>
             )
         })
