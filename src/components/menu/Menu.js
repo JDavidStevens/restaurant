@@ -38,11 +38,15 @@ class Menu extends Component {
     }
     
     render() { 
-        // console.log('Guest',this.props.Store.guest)
-        // console.log('Order',this.props.Store.order)
+        
         const {number, order, bevMenu, entreeMenu, sidesMenu, dessertMenu, toggleBeverages, toggleEntrees, toggleSides, toggleDesserts, handleAddOrder} = this.props.Store;
-        console.log(`number:${typeof number}`)
-        let guest = order.length +1 
+        
+        let guest;
+        if(order.length +1 <= number){
+            guest = order.length+1
+        }else{
+            guest = number;
+        }
         
         return ( 
             <div>
@@ -68,7 +72,7 @@ class Menu extends Component {
                 </div>
 
 
-                {guest===number?<button onClick={handleAddOrder}><Link to='/confirmation'>Proceed to Checkout</Link></button>:<button onClick={handleAddOrder}>Next Guest</button>}
+                {guest>=number?<button onClick={handleAddOrder}><Link to='/confirmation'>Proceed to Checkout</Link></button>:<button onClick={handleAddOrder}>Next Guest</button>}
             </div>
          );
     }

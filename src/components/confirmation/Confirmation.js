@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import {Link} from '@reach/router';
 import {inject, observer} from 'mobx-react';
 
 @inject("Store")
@@ -7,43 +8,48 @@ import {inject, observer} from 'mobx-react';
 class Confirmation extends Component {
 
     render() { 
-        const {guest,order} = this.props.Store;
-        console.log('confirm',guest)
+        const {order,number} = this.props.Store;
         let orderConfirm = order.map((element,index)=>{
             let drinkOrder = element.drink.map((bev,index)=>{
+                if(bev.length){
                 return(
                 <p key={index}>{bev}</p>
-                )
+                )}else{return null}
             })
             let entreeOrder = element.entree.map((meal,index)=>{
+                if(meal.length){
                 return(
                 <p key={index}>{meal}</p>
-                )
+                )}else{return null}
             })
             let sides = element.sideOrder.map((side,index)=>{
+                if(side.length){
                 return(
                 <p key={index}>{side}</p>
-                )
+                )}else{ return null}
             })
             let dessertOrder = element.dessert.map((dessert,index)=>{
+                if(dessert.length){
                 return(
                 <p key={index}>{dessert}</p>
-                )
+                )}else{return null}
             })
             return(
-                <Fragment key={index}>
+                <div key={index}>
+                {order.indexOf(element)+1<=number?
                 <h4>Guest {order.indexOf(element)+1}</h4>
-                <ul>
-                    <li>{drinkOrder}</li>
-                    <li>{entreeOrder}</li>
-                    <li>{sides}</li>
-                    <li>{dessertOrder}</li>
-                </ul>
-                </Fragment>
+                :
+                null
+            }
+                    {drinkOrder}
+                    {entreeOrder}
+                    {sides}
+                    {dessertOrder}
+                    <Link to={`/confirmation/edit/${order.indexOf(element)}`}>Edit</Link>
+                </div>
             )
-
         })
-    
+        
         return ( 
         <div>
            {orderConfirm}
