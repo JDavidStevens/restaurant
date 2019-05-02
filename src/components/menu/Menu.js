@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
 // import {Link} from '@reach/router';
 import axios from 'axios';
-import NavBar from './submenu/Navbar';
+import NavBar from './navbar/Navbar';
+
+import Drinks from './submenu/Drinks';
+import Entree from './submenu/Entree';
+import Sides from './submenu/Sides';
+import Dessert from './submenu/Dessert';
+
+import Burgers from './submenu/meals/Burgers';
+import Sandwiches from './submenu/meals/Sandwiches';
+import Salads from './submenu/meals/Salads';
 
 @inject("Store")
 @observer
@@ -35,19 +44,34 @@ class Menu extends Component {
     
     render() { 
         
-        const {number, order, bevMenu, entreeMenu, sidesMenu, dessertMenu, toggleBeverages, toggleEntrees, toggleSides, toggleDesserts, handleAddOrder} = this.props.Store;
-        
-        let guest;
-        if(order.length +1 <= number){
-            guest = order.length+1
-        }else{
-            guest = number;
-        }
+        const {toggleBeverages, toggleEntrees, toggleSides, toggleDesserts, toggleBurger, toggleSandwich, toggleSalad} = this.props.Store;
         
         return ( 
             <div>
             <NavBar/>
-                <h1>Guest {number}</h1>
+            <div>
+                    <div>
+                    
+                    {toggleBeverages===true?<Drinks/>:null}
+                    </div>
+                    <div>
+                    {toggleEntrees===true && toggleBurger===true?<Burgers/>:null}
+                    </div>
+                    <div>
+                    {toggleEntrees===true && toggleSandwich===true?<Sandwiches/>:null}
+                    </div>
+                    <div>
+                    {toggleEntrees===true && toggleSalad===true?<Salads/>:null}
+                    </div>
+                    <div>
+                    
+                    {toggleSides===true?<Sides/>:null}
+                    </div>
+                    <div>
+                    {toggleDesserts===true?<Dessert/>:null}
+                    </div>
+                </div>
+                
                 
                 
 
