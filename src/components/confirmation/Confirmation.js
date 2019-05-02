@@ -45,7 +45,7 @@ class Confirmation extends Component {
                     {entreeOrder}
                     {sides}
                     {dessertOrder}
-                    <Link to={`/confirmation/edit/${order.indexOf(element)}`}>Edit</Link>
+                    <Link to={`/confirmation/edit/ ${order.indexOf(element)}`}>Edit</Link>
                 </div>
             )
         })

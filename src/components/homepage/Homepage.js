@@ -4,7 +4,7 @@ import {Link} from '@reach/router';
 const Homepage = () => {
     return (
         <div>
-            <Link to={'/guest'}>Begin Order</Link>            
+            <Link to={'/menu'}>Begin Order</Link>            
         </div>
       );
 }

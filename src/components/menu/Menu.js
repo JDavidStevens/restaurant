@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
-import {Link} from '@reach/router';
+// import {Link} from '@reach/router';
 import axios from 'axios';
-
-import Drinks from './submenu/Drinks';
-import Entree from './submenu/Entree';
-import Dessert from './submenu/Dessert';
-import Sides from './submenu/Sides';
+import NavBar from './submenu/Navbar';
 
 @inject("Store")
 @observer
@@ -50,29 +46,13 @@ class Menu extends Component {
         
         return ( 
             <div>
-                <h1>Guest {guest}</h1>
+            <NavBar/>
+                <h1>Guest {number}</h1>
                 
-                <div>
-                    <div>
-                    <button onClick={bevMenu}>Drinks</button>
-                    {toggleBeverages===true?<Drinks/>:null}
-                    </div>
-                    <div>
-                    <button onClick={entreeMenu}>Entrees</button>
-                    {toggleEntrees===true?<Entree/>:null}
-                    </div>
-                    <div>
-                    <button onClick={sidesMenu}>Sides</button>
-                    {toggleSides===true?<Sides/>:null}
-                    </div>
-                    <div>
-                    <button onClick={dessertMenu}>Desserts</button>
-                    {toggleDesserts===true?<Dessert/>:null}
-                    </div>
-                </div>
+                
 
 
-                {guest>=number?<button onClick={handleAddOrder}><Link to='/confirmation'>Proceed to Checkout</Link></button>:<button onClick={handleAddOrder}>Next Guest</button>}
+                {/* {guest>=number?<button onClick={handleAddOrder}><Link to='/confirmation'>Proceed to Checkout</Link></button>:<button onClick={handleAddOrder}>Next Guest</button>} */}
             </div>
          );
     }

@@ -54,27 +54,45 @@ export class Store {
     
     // Main menu toggle actions
    @action bevMenu = () =>{
-       this.toggleBeverages = !this.toggleBeverages
+       this.toggleBeverages = !this.toggleBeverages;
+       this.toggleEntrees = false;
+       this.toggleSides = false;
+       this.toggleDesserts = false;
    } 
     @action entreeMenu = () =>{
-       this.toggleEntrees = !this.toggleEntrees
+       this.toggleEntrees = !this.toggleEntrees;
+       this.toggleBeverages = false;
+       this.toggleSides = false;
+       this.toggleDesserts = false;
    } 
     @action sidesMenu = () =>{
        this.toggleSides = !this.toggleSides
+       this.toggleBeverages = false;
+       this.toggleEntrees = false;
+       this.toggleDesserts = false;
    } 
    @action dessertMenu = () =>{
-       this.toggleDesserts = !this.toggleDesserts
+       this.toggleDesserts = !this.toggleDesserts;
+       this.toggleBeverages = false;
+       this.toggleEntrees = false;
+       this.toggleSides = false;
    } 
 
    //Entree menu toggle actions
    @action burgerMenu = () =>{
-       this.toggleBurger = !this.toggleBurger
+       this.toggleBurger = !this.toggleBurger;
+       this.toggleSandwich = false;
+       this.toggleSalad= false;
    } 
    @action sandwichMenu = () =>{
-       this.toggleSandwich = !this.toggleSandwich
+       this.toggleSandwich = !this.toggleSandwich;
+       this.toggleBurger = false;
+       this.toggleSalad = false;
    }  
    @action saladMenu = () =>{
-       this.toggleSalad = !this.toggleSalad
+       this.toggleSalad = !this.toggleSalad;
+       this.toggleBurger = false;
+       this.toggleSandwich = false;
    } 
 
    //Item selection action
