@@ -5,13 +5,13 @@ import axios from 'axios';
 import NavBar from './navbar/Navbar';
 
 import Drinks from './submenu/Drinks';
-import Entree from './submenu/Entree';
 import Sides from './submenu/Sides';
 import Dessert from './submenu/Dessert';
 
 import Burgers from './submenu/meals/Burgers';
 import Sandwiches from './submenu/meals/Sandwiches';
 import Salads from './submenu/meals/Salads';
+import SideBar from './sidebar/SideBar';
 
 @inject("Store")
 @observer
@@ -70,6 +70,7 @@ class Menu extends Component {
                     <div>
                     {toggleDesserts===true?<Dessert/>:null}
                     </div>
+                    <SideBar/>
                 </div>
                 
                 

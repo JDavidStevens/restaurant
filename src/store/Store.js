@@ -1,8 +1,7 @@
 import {observable, action} from 'mobx';
 
-
 export class Store {
-    @observable number = 1;
+    @observable guestNumber = 1;
     
     // Current guest order
     @observable guest = {
@@ -117,12 +116,26 @@ export class Store {
 
    @action handleAddOrder = () =>{
        this.order.push(this.guest);
+       this.guestNumber = this.guestNumber + 1;
        this.guest={
             drink: [],
             entree: [],
             sideOrder: [],
             dessert: []
                 }
+   }
+
+   @action handleRemoveDrink = (drink) => {
+        this.guest.drink.splice(this.guest.drink.indexOf(drink),1)
+   }
+   @action handleRemoveEntree = (meal) => {
+        this.guest.entree.splice(this.guest.entree.indexOf(meal),1)
+   }
+   @action handleRemoveSide = (side) => {
+        this.guest.sideOrder.splice(this.guest.sideOrder.indexOf(side),1)
+   }
+   @action handleRemoveDessert = (treat) => {
+        this.guest.dessert.splice(this.guest.dessert.indexOf(treat),1)
    }
     
 }

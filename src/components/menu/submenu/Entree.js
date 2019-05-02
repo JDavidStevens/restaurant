@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Burgers from './meals/Burgers';
-import Sandwiches from './meals/Sandwiches';
-import Salads from './meals/Salads';
 import { inject, observer } from 'mobx-react';
 
 @inject('Store')
@@ -15,19 +12,17 @@ class Entree extends Component {
         <div>
             <div>
                     <div>
-                    <button onClick={burgerMenu}>Burgers</button>
-                    
+                    <button onClick={burgerMenu}>Burgers</button>                    
                     </div>
                     <div>
-                    <button onClick={sandwichMenu}>Sandwiches</button>
-                    
+                    <button onClick={sandwichMenu}>Sandwiches</button>                    
                     </div>
                     <div>
-                    <button onClick={saladMenu}>Salads</button>
-                    
+                    <button onClick={saladMenu}>Salads</button>                    
                     </div>
                 </div>
-        </div> );
+        </div> 
+        );
     }
 }
  
