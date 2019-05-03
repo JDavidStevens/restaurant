@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // import {Link} from '@reach/router';
 import {inject, observer} from 'mobx-react';
 
@@ -8,56 +8,52 @@ import {inject, observer} from 'mobx-react';
 class Edit extends Component {
     
     render() { 
-        let guest = this.props.id;
-        let {order, guestNumber} = this.props.Store;
-        let orderArray=[...order]
-        let orderObject= orderArray[guest].dessert[0];
+        let guest = parseInt(this.props.id);
+        console.log(typeof guest)
+        let {order,handleDeleteDrink, handleDeleteEntree, handleDeleteSide, handleDeleteDessert} = this.props.Store;
+        let orderArray=[...order];
+        console.log('arr',orderArray)
+        let drinkArray= orderArray[guest].drink.map((e,index)=>{
+            return(
+                <Fragment key={index}>
+                    <p>{e}</p>
+                    <button onClick={()=>{handleDeleteDrink(guest,index)}}>-</button>
+                </Fragment>
+            )
+        });
+        let entreeArray= orderArray[guest].entree.map((e,index)=>{
+            return(
+                <Fragment key={index}>
+                    <p>{e}</p>
+                    <button onClick={()=>{handleDeleteEntree(guest,e)}}>-</button>
+                </Fragment>
+            )
+        });
+        let sidesArray= orderArray[guest].sideOrder.map((e,index)=>{
+            return(
+                <Fragment  key={index}>
+                    <p>{e}</p>
+                    <button onClick={()=>{handleDeleteSide(guest,e)}}>-</button>
+                </Fragment>        
+            )
+        });
+        let dessertArray= orderArray[guest].dessert.map((e,index)=>{
+            return(
+                <Fragment key={index}>
+                <p>{e}</p>
+                <button onClick={()=>{handleDeleteDessert(guest,e)}}>-</button>
+            </Fragment>
+            )
+        });
 
-        console.log(orderObject)
-        // console.log('guest', this.props.id)
-        // let orderObject = order.map((element,index)=>{
-        //     let drinkOrder = element.drink.map((bev,index)=>{
-        //         if(bev.length){
-        //         return(
-        //         <p key={index}>{bev}</p>
-        //         )}else{return null}
-        //     })
-        //     let entreeOrder = element.entree.map((meal,index)=>{
-        //         if(meal.length){
-        //         return(
-        //         <p key={index}>{meal}</p>
-        //         )}else{return null}
-        //     })
-        //     let sides = element.sideOrder.map((side,index)=>{
-        //         if(side.length){
-        //         return(
-        //         <p key={index}>{side}</p>
-        //         )}else{ return null}
-        //     })
-        //     let dessertOrder = element.dessert.map((dessert,index)=>{
-        //         if(dessert.length){
-        //         return(
-        //         <p key={index}>{dessert}</p>
-        //         )}else{return null}
-        //     })
-        //     return(
-        //         <div key={index}>
-        //         {order.indexOf(element)+1<=guestNumber?
-        //         <h4>Guest {order.indexOf(element)+1}</h4>
-        //         :
-        //         null
-        //     }
-        //             {drinkOrder}
-        //             {entreeOrder}
-        //             {sides}
-        //             {dessertOrder}
-        //         </div>
-        //     )
-        // })
+        
         return ( 
             <div>
-                Edit
-                {/* {orderObject} */}
+                <h2>Guest {guest+1}</h2>
+                {drinkArray}
+                {entreeArray}
+                {sidesArray}
+                {dessertArray}
             </div>
          );
     }

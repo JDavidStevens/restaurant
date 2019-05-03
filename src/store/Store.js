@@ -124,7 +124,7 @@ export class Store {
             dessert: []
                 }
    }
-
+// Sidebar remove item
    @action handleRemoveDrink = (drink) => {
         this.guest.drink.splice(this.guest.drink.indexOf(drink),1)
    }
@@ -137,6 +137,20 @@ export class Store {
    @action handleRemoveDessert = (treat) => {
         this.guest.dessert.splice(this.guest.dessert.indexOf(treat),1)
    }
+
+// Edit page delete item
+@action handleDeleteDrink = (index,drink) => {
+    this.order[index].drink.splice(drink,1)
+}
+@action handleDeleteEntree = (index,entree) => {
+    this.order[index].entree.splice(entree,1)
+}
+@action handleDeleteDrink = (index,drink) => {
+    this.order[index].drink.splice(drink,1)
+}
+@action handleDeleteDrink = (index,drink) => {
+    this.order[index].drink.splice(drink,1)
+}
     
 }
 
