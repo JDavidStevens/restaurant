@@ -21,32 +21,32 @@ class SideBar extends Component {
         
         let bevs = guest.drink.map((e,index)=>{
         return(
-            <Fragment>
-                <p key={index}>{e}</p>
+            <Fragment key={index}>
+                <p>{e}</p>
                 <button onClick={()=>{handleRemoveDrink(e)}}>-</button>
             </Fragment>
         )})
         
         let entrees = guest.entree.map((e,index)=>{
         return(
-            <Fragment>
-                <p key={index}>{e}</p>
+            <Fragment key={index}>
+                <p>{e}</p>
                 <button onClick={()=>{handleRemoveEntree(e)}}>-</button>
             </Fragment>
         )})
 
         let sides = guest.sideOrder.map((e,index)=>{
         return(
-            <Fragment>
-                <p key={index}>{e}</p>
+            <Fragment  key={index}>
+                <p>{e}</p>
                 <button onClick={()=>{handleRemoveSide(e)}}>-</button>
             </Fragment>        
         )})
 
         let desserts = guest.dessert.map((e,index)=>{
         return(
-            <Fragment>
-                <p key={index}>{e}</p>
+            <Fragment key={index}>
+                <p>{e}</p>
                 <button onClick={()=>{handleRemoveDessert(e)}}>-</button>
             </Fragment>
         )})

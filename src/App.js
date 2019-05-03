@@ -17,7 +17,7 @@ class App extends Component {
         <Guests path="/guest"/>
         <Menu path="/menu"/>
         <Confirmation path ='/confirmation'/>
-        <Edit path='/confirmation/edit/:guest'/>
+        <Edit path='/confirmation/edit/:id'/>
       </Router>
         
       </div>
