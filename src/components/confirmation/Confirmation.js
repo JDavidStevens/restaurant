@@ -8,7 +8,7 @@ import {inject, observer} from 'mobx-react';
 class Confirmation extends Component {
 
     render() { 
-        const {order,number} = this.props.Store;
+        const {order,guestNumber} = this.props.Store;
         let orderConfirm = order.map((element,index)=>{
             let drinkOrder = element.drink.map((bev,index)=>{
                 if(bev.length){
@@ -36,7 +36,7 @@ class Confirmation extends Component {
             })
             return(
                 <div key={index}>
-                {order.indexOf(element)+1<=number?
+                {order.indexOf(element)+1<=guestNumber?
                 <h4>Guest {order.indexOf(element)+1}</h4>
                 :
                 null

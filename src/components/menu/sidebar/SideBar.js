@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import {Link} from '@reach/router';
 import { inject, observer } from 'mobx-react';
 import Swal from 'sweetalert2';
 
@@ -16,7 +17,7 @@ class SideBar extends Component {
     }
 
     render() { 
-        const {guestNumber, guest, handleRemoveDrink, handleRemoveEntree, handleRemoveSide, handleRemoveDessert, handleAddOrder} = this.props.Store;
+        const {guestNumber, guest, handleRemoveDrink, handleRemoveEntree, handleRemoveSide, handleRemoveDessert, handleAddOrder, order} = this.props.Store;
         
         let bevs = guest.drink.map((e,index)=>{
         return(
@@ -59,12 +60,16 @@ class SideBar extends Component {
                     {sides.length?(<h4>Side(s):{sides}</h4>):(<h4>Side(s):none</h4>)}
                     {desserts.length?(<h4>Dessert(s):{desserts}</h4>):(<h4>Dessert(s):none</h4>)}
                 </div>
-                {bevs.length || entrees.length || sides.length || desserts.length?
+                    {bevs.length || entrees.length || sides.length || desserts.length?
                     <button onClick={handleAddOrder}>Next Guest</button>
-                :
+                    :
                     <button onClick={this.handleEmptyOrder}>Next Guest</button>
-                }
-                <button>Proceed to Checkout</button>
+                    }
+                    {order.length || bevs.length || entrees.length || sides.length || desserts.length?
+                    <button onClick={handleAddOrder}><Link to='/confirmation'>Proceed to Checkout</Link></button>
+                    :
+                    <button onClick={this.handleEmptyOrder}>Proceed to Checkout</button>
+                    }
             </div>
          );
     }
