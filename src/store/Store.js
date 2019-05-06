@@ -139,17 +139,17 @@ export class Store {
    }
 
 // Edit page delete item
-@action handleDeleteDrink = (index,drink) => {
-    this.order[index].drink.splice(drink,1)
+@action handleDeleteDrink = (index,bev) => {
+    this.order[index].drink.splice(bev,1)
 }
-@action handleDeleteEntree = (index,entree) => {
-    this.order[index].entree.splice(entree,1)
+@action handleDeleteEntree = (index,meal) => {
+    this.order[index].entree.splice(meal,1)
 }
-@action handleDeleteDrink = (index,drink) => {
-    this.order[index].drink.splice(drink,1)
+@action handleDeleteSide = (index,side) => {
+    this.order[index].sideOrder.splice(side,1)
 }
-@action handleDeleteDrink = (index,drink) => {
-    this.order[index].drink.splice(drink,1)
+@action handleDeleteDessert = (index,treat) => {
+    this.order[index].dessert.splice(treat,1)
 }
     
 }
