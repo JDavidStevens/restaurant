@@ -8,10 +8,11 @@ import {inject, observer} from 'mobx-react';
 class EditDrinks extends Component {
     
     render() { 
-        const {beverages,handleAddDrink} = this.props.Store;
+        const {beverages,handleEditDrink} = this.props.Store;
+        let guest = parseInt(this.props.guestNum);
         let drinkSelection= beverages.map((e,index)=>{
             return (
-                <div key={index} onClick={()=>handleAddDrink(e.item)}>
+                <div key={index} onClick={()=>handleEditDrink(guest,e.item)}>
                 <h2>{e.item}</h2>
                 <img src='' alt=''/>
                 </div>

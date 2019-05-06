@@ -8,22 +8,22 @@ import EditEntree from '../editmenu/EditEntree';
 class EditNavBar extends Component {
     
     render() { 
-        const {bevMenu, entreeMenu, sidesMenu, dessertMenu, toggleEntrees} = this.props.Store;
+        const {editBevMenu, editEntreeMenu, editSidesMenu, editDessertMenu, toggleEditEntrees} = this.props.Store;
         return ( 
             <div>
                     <div>
-                    <button onClick={bevMenu}>Drinks</button>
+                    <button onClick={editBevMenu}>Drinks</button>
                     </div>
                     <div>
-                    <button onClick={entreeMenu}>Entrees</button>
+                    <button onClick={editEntreeMenu}>Entrees</button>
                     </div>
                     <div>
-                    <button onClick={sidesMenu}>Sides</button>
+                    <button onClick={editSidesMenu}>Sides</button>
                     </div>
                     <div>
-                    <button onClick={dessertMenu}>Desserts</button>
+                    <button onClick={editDessertMenu}>Desserts</button>
                     </div>
-                    {toggleEntrees===true?<EditEntree/>:null}
+                    {toggleEditEntrees===true?<EditEntree/>:null}
                 </div>
          );
     }

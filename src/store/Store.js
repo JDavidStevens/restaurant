@@ -95,8 +95,8 @@ export class Store {
    } 
 
    //Item selection action
-   @action handleAddDrink = (drink) =>{
-       this.guest.drink.push(drink)
+   @action handleAddDrink = (bev) =>{
+       this.guest.drink.push(bev)
    }
    @action handleAddBurger = (burger) =>{
        this.guest.entree.push(burger)
@@ -138,22 +138,96 @@ export class Store {
         this.guest.dessert.splice(this.guest.dessert.indexOf(treat),1)
    }
 
-// Edit page delete item
-@action handleDeleteDrink = (index,bev) => {
-    this.order[index].drink.splice(bev,1)
-}
-@action handleDeleteEntree = (index,meal) => {
-    this.order[index].entree.splice(meal,1)
-}
-@action handleDeleteSide = (index,side) => {
-    this.order[index].sideOrder.splice(side,1)
-}
-@action handleDeleteDessert = (index,treat) => {
-    this.order[index].dessert.splice(treat,1)
-}
-    
-}
+////////////////////EDIT PAGE////////////////////////
 
+// Edit page toggle   
+    @observable toggleEditBeverages=false
+    @observable toggleEditEntrees=false
+    @observable toggleEditSides=false
+    @observable toggleEditDesserts=false
+
+// Edit Entree Menu toggle state
+    @observable toggleEditBurger=false
+    @observable toggleEditSandwich=false
+    @observable toggleEditSalad=false
+
+// Edit page delete item
+    @action handleDeleteDrink = (index,bev) => {
+        this.order[index].drink.splice(bev,1)
+    }
+    @action handleDeleteEntree = (index,meal) => {
+        this.order[index].entree.splice(meal,1)
+    }
+    @action handleDeleteSide = (index,side) => {
+        this.order[index].sideOrder.splice(side,1)
+    }
+    @action handleDeleteDessert = (index,treat) => {
+        this.order[index].dessert.splice(treat,1)
+    }
+    
+
+// Main Edit toggle actions
+@action editBevMenu = () =>{
+    this.toggleEditBeverages = !this.toggleEditBeverages;
+    this.toggleEditEntrees = false;
+    this.toggleEditSides = false;
+    this.toggleEditDesserts = false;
+} 
+ @action editEntreeMenu = () =>{
+    this.toggleEditEntrees = !this.toggleEditEntrees;
+    this.toggleEditBeverages = false;
+    this.toggleEditSides = false;
+    this.toggleEditDesserts = false;
+} 
+ @action editSidesMenu = () =>{
+    this.toggleEditSides = !this.toggleEditSides
+    this.toggleEditBeverages = false;
+    this.toggleEditEntrees = false;
+    this.toggleEditDesserts = false;
+} 
+@action editDessertMenu = () =>{
+    this.toggleEditDesserts = !this.toggleEditDesserts;
+    this.toggleEditBeverages = false;
+    this.toggleEditEntrees = false;
+    this.toggleEditSides = false;
+} 
+
+//Edit Entree menu toggle actions
+@action editBurgerMenu = () =>{
+    this.toggleEditBurger = !this.toggleBurger;
+    this.toggleEditSandwich = false;
+    this.toggleEditSalad= false;
+} 
+@action editSandwichMenu = () =>{
+    this.toggleEditSandwich = !this.toggleSandwich;
+    this.toggleEditBurger = false;
+    this.toggleEditSalad = false;
+}  
+@action editSaladMenu = () =>{
+    this.toggleEditSalad = !this.toggleSalad;
+    this.toggleEditBurger = false;
+    this.toggleEditSandwich = false;
+} 
+
+@action handleEditDrink = (index,bev) =>{
+    this.order[index].drink.push(bev)
+}
+@action handleEditBurger = (burger) =>{
+    this.guest.entree.push(burger)
+}
+@action handleEditSandwich = (sandwich) =>{
+    this.guest.entree.push(sandwich)
+}
+@action handleEditSalad = (salad) =>{
+    this.guest.entree.push(salad)
+}
+@action handleEditSide = (side) =>{
+    this.guest.sideOrder.push(side)
+}
+@action handleEditDessert = (treat) =>{
+    this.guest.dessert.push(treat)
+}
+}
 const store = new Store();
 export default store;
 

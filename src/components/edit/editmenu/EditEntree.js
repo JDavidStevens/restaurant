@@ -7,18 +7,18 @@ import { inject, observer } from 'mobx-react';
 class EditEntree extends Component {
     
     render() { 
-        const {burgerMenu, sandwichMenu, saladMenu} = this.props.Store
+        const {editBurgerMenu, editSandwichMenu, editSaladMenu} = this.props.Store
         return ( 
         <div>
             <div>
                     <div>
-                    <button onClick={burgerMenu}>Burgers</button>                    
+                    <button onClick={editBurgerMenu}>Burgers</button>                    
                     </div>
                     <div>
-                    <button onClick={sandwichMenu}>Sandwiches</button>                    
+                    <button onClick={editSandwichMenu}>Sandwiches</button>                    
                     </div>
                     <div>
-                    <button onClick={saladMenu}>Salads</button>                    
+                    <button onClick={editSaladMenu}>Salads</button>                    
                     </div>
                 </div>
         </div> 

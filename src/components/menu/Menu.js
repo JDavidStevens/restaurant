@@ -71,13 +71,7 @@ class Menu extends Component {
                     {toggleDesserts===true?<Dessert/>:null}
                     </div>
                     <SideBar/>
-                </div>
-                
-                
-                
-
-
-                {/* {guest>=number?<button onClick={handleAddOrder}><Link to='/confirmation'>Proceed to Checkout</Link></button>:<button onClick={handleAddOrder}>Next Guest</button>} */}
+                </div>     
             </div>
          );
     }
