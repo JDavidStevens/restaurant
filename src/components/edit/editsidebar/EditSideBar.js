@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-// import {Link} from '@reach/router';
+import {Link} from '@reach/router';
 import {inject, observer} from 'mobx-react';
 
 @inject("Store")
@@ -53,6 +53,9 @@ class EditSideBar extends Component {
                 {entreeArray}
                 {sidesArray}
                 {dessertArray}
+                <div>
+                <button><Link to='/confirmation'>Proceed to Checkout</Link></button>
+                </div>
             </div>
          );
     }
