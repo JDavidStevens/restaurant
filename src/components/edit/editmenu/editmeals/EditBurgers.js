@@ -9,7 +9,8 @@ class EditBurgers extends Component {
     
     render() { 
         
-        const {burgers, handleAddBurger} = this.props.Store;
+        let guest = parseInt(this.props.guestNum);
+        const {burgers, handleEditBurger} = this.props.Store;
         
         let burgerSelection = burgers.map((e,index)=>{
             return(
@@ -19,7 +20,7 @@ class EditBurgers extends Component {
                         <h3>{e.item}</h3>
                         <p>{e.description}</p>
                     </div>
-                    <button onClick={()=>handleAddBurger(e.item)}>+</button>
+                    <button onClick={()=>handleEditBurger(guest, e.item)}>+</button>
                 </div>
             )
         })

@@ -194,17 +194,17 @@ export class Store {
 
 //Edit Entree menu toggle actions
 @action editBurgerMenu = () =>{
-    this.toggleEditBurger = !this.toggleBurger;
+    this.toggleEditBurger = !this.toggleEditBurger;
     this.toggleEditSandwich = false;
     this.toggleEditSalad= false;
 } 
 @action editSandwichMenu = () =>{
-    this.toggleEditSandwich = !this.toggleSandwich;
+    this.toggleEditSandwich = !this.toggleEditSandwich;
     this.toggleEditBurger = false;
     this.toggleEditSalad = false;
 }  
 @action editSaladMenu = () =>{
-    this.toggleEditSalad = !this.toggleSalad;
+    this.toggleEditSalad = !this.toggleEditSalad;
     this.toggleEditBurger = false;
     this.toggleEditSandwich = false;
 } 
@@ -212,20 +212,20 @@ export class Store {
 @action handleEditDrink = (index,bev) =>{
     this.order[index].drink.push(bev)
 }
-@action handleEditBurger = (burger) =>{
-    this.guest.entree.push(burger)
+@action handleEditBurger = (index,burger) =>{
+    this.order[index].entree.push(burger)
 }
-@action handleEditSandwich = (sandwich) =>{
-    this.guest.entree.push(sandwich)
+@action handleEditSandwich = (index, sandwich) =>{
+    this.order[index].entree.push(sandwich)
 }
-@action handleEditSalad = (salad) =>{
-    this.guest.entree.push(salad)
+@action handleEditSalad = (index,salad) =>{
+    this.order[index].entree.push(salad)
 }
-@action handleEditSide = (side) =>{
-    this.guest.sideOrder.push(side)
+@action handleEditSide = (index,side) =>{
+    this.order[index].sideOrder.push(side)
 }
-@action handleEditDessert = (treat) =>{
-    this.guest.dessert.push(treat)
+@action handleEditDessert = (index,treat) =>{
+    this.order[index].dessert.push(treat)
 }
 }
 const store = new Store();

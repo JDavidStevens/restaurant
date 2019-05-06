@@ -26,20 +26,20 @@ class Edit extends Component {
                     {toggleEditBeverages===true?<EditDrinks guestNum={this.props.id}/>:null}
                     </div>
                     <div>
-                    {toggleEditEntrees===true && toggleEditBurger===true?<EditBurgers/>:null}
+                    {toggleEditEntrees===true && toggleEditBurger===true?<EditBurgers guestNum={this.props.id}/>:null}
                     </div>
                     <div>
-                    {toggleEditEntrees===true && toggleEditSandwich===true?<EditSandwiches/>:null}
+                    {toggleEditEntrees===true && toggleEditSandwich===true?<EditSandwiches guestNum={this.props.id}/>:null}
                     </div>
                     <div>
-                    {toggleEditEntrees===true && toggleEditSalad===true?<EditSalads/>:null}
+                    {toggleEditEntrees===true && toggleEditSalad===true?<EditSalads guestNum={this.props.id}/>:null}
                     </div>
                     <div>
                     
-                    {toggleEditSides===true?<EditSides/>:null}
+                    {toggleEditSides===true?<EditSides guestNum={this.props.id}/>:null}
                     </div>
                     <div>
-                    {toggleEditDesserts===true?<EditDessert/>:null}
+                    {toggleEditDesserts===true?<EditDessert guestNum={this.props.id}/>:null}
                     </div>
                     <EditSideBar guestNum={this.props.id}/>
                 </div>     

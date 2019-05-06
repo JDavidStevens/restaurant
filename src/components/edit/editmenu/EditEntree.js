@@ -7,6 +7,7 @@ import { inject, observer } from 'mobx-react';
 class EditEntree extends Component {
     
     render() { 
+        
         const {editBurgerMenu, editSandwichMenu, editSaladMenu} = this.props.Store
         return ( 
         <div>

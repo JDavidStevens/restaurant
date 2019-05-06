@@ -7,7 +7,8 @@ import {inject, observer} from 'mobx-react';
 class EditDessert extends Component {
     
     render() { 
-        const {desserts, handleAddDessert} = this.props.Store;
+        let guest = parseInt(this.props.guestNum);
+        const {desserts, handleEditDessert} = this.props.Store;
         
         let dessertSelection = desserts.map((e,index)=>{
             return(
@@ -17,7 +18,7 @@ class EditDessert extends Component {
                         <h3>{e.item}</h3>
                         <p>{e.description}</p>
                     </div>
-                    <button onClick={()=>handleAddDessert(e.item)}>+</button>
+                    <button onClick={()=>handleEditDessert(guest,e.item)}>+</button>
                 </div>
             )
         })
