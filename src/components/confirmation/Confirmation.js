@@ -52,8 +52,12 @@ class Confirmation extends Component {
         
         return ( 
         <div>
+            <div>
            {orderConfirm}
-        </div> );
+            </div>
+            <Link to='/submitted'>Submit</Link>
+        </div> 
+        );
     }
 }
  

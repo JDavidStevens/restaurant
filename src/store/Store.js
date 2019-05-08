@@ -34,23 +34,7 @@ export class Store {
     @observable sides = [];
     @observable desserts =[];
 
-    //Guest Counter- Guest Page
-    @action increment = () =>{
-        if(this.number<20){
-        this.number = this.number + 1}
-        else{
-            return;
-        }
-    }
-    @action decrement = () =>{
-        if(this.number>1){
-        this.number = this.number - 1}
-        else{
-            return;
-        }
-    }
-
-    
+  
     // Main menu toggle actions
    @action bevMenu = () =>{
        this.toggleBeverages = !this.toggleBeverages;
@@ -226,6 +210,11 @@ export class Store {
 }
 @action handleEditDessert = (index,treat) =>{
     this.order[index].dessert.push(treat)
+}
+
+@action reset = () =>{
+    this.order = [];
+    this.guestNumber=1;
 }
 }
 const store = new Store();
