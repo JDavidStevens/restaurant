@@ -13,7 +13,7 @@ class Sides extends Component {
             return (
                 <div key={index}>
                 <h2>{e.item}</h2>
-                <img src='' alt=''/>
+                <img src={e.image} alt=''/>
                 <button onClick={()=>handleAddSide(e.item)}>+</button>
                 </div>
             )

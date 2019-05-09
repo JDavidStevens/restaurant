@@ -12,7 +12,7 @@ class Dessert extends Component {
         let dessertSelection = desserts.map((e,index)=>{
             return(
                 <div key={index}>
-                    <img src='' alt=''/>
+                    <img src={e.image} alt=''/>
                     <div>
                         <h3>{e.item}</h3>
                         <p>{e.description}</p>

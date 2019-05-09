@@ -12,8 +12,8 @@ class Drinks extends Component {
         let drinkSelection= beverages.map((e,index)=>{
             return (
                 <div key={index} onClick={()=>handleAddDrink(e.item)}>
-                <h2>{e.item}</h2>
-                <img src='' alt=''/>
+                {/* <h2>{e.item}</h2> */}
+                <img src={e.image} alt={e.item}/>
                 </div>
             )
         })
@@ -21,7 +21,6 @@ class Drinks extends Component {
         return ( 
             <div className="beverages">
                 <div className="beverage-options-wrapper">
-                Drinks
                 <div>
                    {drinkSelection} 
                 </div>
