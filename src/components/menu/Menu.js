@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
-// import {Link} from '@reach/router';
 import axios from 'axios';
 import NavBar from './navbar/Navbar';
 
@@ -11,6 +10,7 @@ import Dessert from './submenu/Dessert';
 import Burgers from './submenu/meals/Burgers';
 import Sandwiches from './submenu/meals/Sandwiches';
 import Salads from './submenu/meals/Salads';
+
 import SideBar from './sidebar/SideBar';
 
 @inject("Store")
@@ -30,7 +30,7 @@ class Menu extends Component {
                     salads.push(e)
                 }else if(e.type==="burger"){
                     burgers.push(e)
-                }else if(e.type==="sandwich"){
+                }else if(e.type==="sandwiches"){
                     sandwiches.push(e)
                 }else if(e.type==="side"){
                     sides.push(e)
