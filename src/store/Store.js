@@ -11,16 +11,16 @@ export class Store {
         dessert: []
     }
     
-    // Guests order storage
+    // Guests orders storage
     @observable order = [];
 
-    // Main menu toggle state
+    // Main menu nav toggle state
     @observable toggleBeverages=false
     @observable toggleEntrees=false
     @observable toggleSides=false
     @observable toggleDesserts=false
 
-    // Entree menu toggle state
+    // Entree menu nav toggle state
     @observable toggleBurger=false
     @observable toggleSandwich=false
     @observable toggleSalad=false
@@ -35,7 +35,7 @@ export class Store {
     @observable desserts =[];
 
   
-    // Main menu toggle actions
+    // Main menu nav toggle actions
    @action bevMenu = () =>{
        this.toggleBeverages = !this.toggleBeverages;
        this.toggleEntrees = false;
@@ -61,7 +61,7 @@ export class Store {
        this.toggleSides = false;
    } 
 
-   //Entree menu toggle actions
+   //Entree menu nav toggle actions
    @action burgerMenu = () =>{
        this.toggleBurger = !this.toggleBurger;
        this.toggleSandwich = false;
@@ -124,13 +124,13 @@ export class Store {
 
 ////////////////////EDIT PAGE////////////////////////
 
-// Edit page toggle   
+// Edit page nav toggle   
     @observable toggleEditBeverages=false
     @observable toggleEditEntrees=false
     @observable toggleEditSides=false
     @observable toggleEditDesserts=false
 
-// Edit Entree Menu toggle state
+// Edit Entree Menu nav toggle state
     @observable toggleEditBurger=false
     @observable toggleEditSandwich=false
     @observable toggleEditSalad=false
@@ -150,7 +150,7 @@ export class Store {
     }
     
 
-// Main Edit toggle actions
+// Main Edit nav toggle actions
 @action editBevMenu = () =>{
     this.toggleEditBeverages = !this.toggleEditBeverages;
     this.toggleEditEntrees = false;
@@ -176,7 +176,7 @@ export class Store {
     this.toggleEditSides = false;
 } 
 
-//Edit Entree menu toggle actions
+//Edit Entree menu nav toggle actions
 @action editBurgerMenu = () =>{
     this.toggleEditBurger = !this.toggleEditBurger;
     this.toggleEditSandwich = false;
@@ -193,6 +193,8 @@ export class Store {
     this.toggleEditSandwich = false;
 } 
 
+
+// Add new items from edit page
 @action handleEditDrink = (index,bev) =>{
     this.order[index].drink.push(bev)
 }
@@ -212,6 +214,7 @@ export class Store {
     this.order[index].dessert.push(treat)
 }
 
+//reset page upon submitting full order
 @action reset = () =>{
     this.order = [];
     this.guestNumber=1;
