@@ -18,10 +18,10 @@ import SideBar from './sidebar/SideBar';
 
 class Menu extends Component {
     
+// Receive menu from database and sort by type            
     componentDidMount(){
         const {beverages, salads, burgers, sandwiches, sides, desserts} = this.props.Store; 
         axios.get("/api/menu").then(res=>{
-            
             const menu = res.data;
             menu.map(e=>{
                 if(e.type==="drink"){
@@ -51,7 +51,7 @@ class Menu extends Component {
             <NavBar/>
             <div>
                     <div>
-                    
+                    {/*display appropriate menu based on button selected on navbar*/}
                     {toggleBeverages===true?<Drinks/>:null}
                     </div>
                     <div>
