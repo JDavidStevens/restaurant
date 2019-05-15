@@ -1,18 +1,25 @@
 import React, { Component, Fragment } from 'react';
-import {Link} from '@reach/router';
+import { Link } from '@reach/router';
 import {inject, observer} from 'mobx-react';
+import Store from '../../../store/Store';
+
+interface Props{
+    guestNum: string
+}
 
 @inject("Store")
 @observer
 
-class EditSideBar extends Component {
+
+class EditSideBar extends Component <Props> {
     
-    render() { 
+  public render() { 
+        
         let guest = parseInt(this.props.guestNum);
-        let {order,handleDeleteDrink, handleDeleteEntree, handleDeleteSide, handleDeleteDessert} = this.props.Store;
+        let {order, handleDeleteDrink, handleDeleteEntree, handleDeleteSide, handleDeleteDessert} = this.props.Store;
         let orderArray=[...order];
         
-        let drinkArray= orderArray[guest].drink.map((e,index)=>{
+        let drinkArray= orderArray[guest].drink.map((e:string,index:number)=>{
             return(
                 <Fragment key={index}>
                     <p>{e}</p>
@@ -20,7 +27,7 @@ class EditSideBar extends Component {
                 </Fragment>
             )
         });
-        let entreeArray= orderArray[guest].entree.map((e,index)=>{
+        let entreeArray= orderArray[guest].entree.map((e:string,index:number)=>{
             return(
                 <Fragment key={index}>
                     <p>{e}</p>
@@ -28,7 +35,7 @@ class EditSideBar extends Component {
                 </Fragment>
             )
         });
-        let sidesArray= orderArray[guest].sideOrder.map((e,index)=>{
+        let sidesArray= orderArray[guest].sideOrder.map((e:string,index:number)=>{
             return(
                 <Fragment  key={index}>
                     <p>{e}</p>
@@ -36,7 +43,7 @@ class EditSideBar extends Component {
                 </Fragment>        
             )
         });
-        let dessertArray= orderArray[guest].dessert.map((e,index)=>{
+        let dessertArray= orderArray[guest].dessert.map((e:string,index:number)=>{
             return(
                 <Fragment key={index}>
                 <p>{e}</p>
