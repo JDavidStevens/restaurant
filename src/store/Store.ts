@@ -6,11 +6,14 @@ export interface TypeStore{
     guestNumber : number;
 
     guest : {
-        // drink : string[],
-        entree : string[],
-        sideOrder : string[],
-        dessert : string[]        
+        [drink : string]:string[]       
     };
+    // guest : {
+    //     drink : string[],
+    //     entree : string[],
+    //     sideOrder : string[],
+    //     dessert : string[]        
+    // };
 
 
     order: object[];
@@ -46,11 +49,10 @@ export interface TypeStore{
     handleAddSide(side: string):void;
     handleAddDessert(treat:string):void;
 
-
+    handleAddOrder():any;
 }
 
-// export class Store implements TypeStore{
-    export class Store{
+    export class Store implements TypeStore{
     
     @observable public guestNumber = 1;
     
@@ -134,19 +136,19 @@ export interface TypeStore{
    @action.bound public handleAddDrink(bev:string):void{
        this.guest.drink.push(bev)
    }
-   @action public handleAddBurger(burger:string):void{
+   @action.bound public handleAddBurger(burger:string):void{
        this.guest.entree.push(burger)
    }
-   @action public handleAddSandwich(sandwich:string):void{
+   @action.bound public handleAddSandwich(sandwich:string):void{
        this.guest.entree.push(sandwich)
    }
-   @action public handleAddSalad(salad:string):void{
+   @action.bound public handleAddSalad(salad:string):void{
        this.guest.entree.push(salad)
    }
-   @action public handleAddSide(side: string):void{
+   @action.bound public handleAddSide(side: string):void{
        this.guest.sideOrder.push(side)
    }
-   @action public handleAddDessert(treat:string):void{
+   @action.bound public handleAddDessert(treat:string):void{
        this.guest.dessert.push(treat)
    }
 
@@ -161,16 +163,16 @@ export interface TypeStore{
                 }
    }
 // Sidebar remove item
-   @action public handleRemoveDrink = (drink) => {
+   @action public handleRemoveDrink = (drink:string) => {
         this.guest.drink.splice(this.guest.drink.indexOf(drink),1)
    }
-   @action public handleRemoveEntree = (meal) => {
+   @action public handleRemoveEntree = (meal:string) => {
         this.guest.entree.splice(this.guest.entree.indexOf(meal),1)
    }
-   @action public handleRemoveSide = (side) => {
+   @action public handleRemoveSide = (side:string) => {
         this.guest.sideOrder.splice(this.guest.sideOrder.indexOf(side),1)
    }
-   @action public handleRemoveDessert = (treat) => {
+   @action public handleRemoveDessert = (treat:string) => {
         this.guest.dessert.splice(this.guest.dessert.indexOf(treat),1)
    }
 
