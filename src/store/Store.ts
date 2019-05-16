@@ -1,10 +1,57 @@
 import {observable, action} from 'mobx';
 
+
+// store interface 
 export interface TypeStore{
     guestNumber : number;
+
+    guest : {
+        // drink : string[],
+        entree : string[],
+        sideOrder : string[],
+        dessert : string[]        
+    };
+
+
+    order: object[];
+    toggleBeverages : boolean;
+    toggleEntrees : boolean;
+    toggleSides : boolean;
+    toggleDesserts : boolean;
+    
+    toggleBurger : boolean;
+    toggleSandwich : boolean;
+    toggleSalad : boolean;
+
+    beverages : string[]; 
+    salads : string[];
+    burgers : string[];
+    sandwiches : string[];
+    sides : string[];
+    desserts : string[];
+
+    // bevMenu();
+    // entreeMenu();
+    // sidesMenu();
+    // dessertMenu();
+
+    // burgerMenu();
+    // sandwichMenu();
+    // saladMenu();
+
+    handleAddDrink(bev:string):void;
+    handleAddBurger(burger:string):void;
+    handleAddSandwich(sandwich:string):void;
+    handleAddSalad(salad:string):void;
+    handleAddSide(side: string):void;
+    handleAddDessert(treat:string):void;
+
+
 }
 
-export class Store implements TypeStore{
+// export class Store implements TypeStore{
+    export class Store{
+    
     @observable public guestNumber = 1;
     
     // Current guest order
@@ -83,22 +130,23 @@ export class Store implements TypeStore{
    } 
 
    // Item selection action
-   @action public handleAddDrink = (bev:string) =>{
+
+   @action.bound public handleAddDrink(bev:string):void{
        this.guest.drink.push(bev)
    }
-   @action public handleAddBurger = (burger:string) =>{
+   @action public handleAddBurger(burger:string):void{
        this.guest.entree.push(burger)
    }
-   @action public handleAddSandwich = (sandwich) =>{
+   @action public handleAddSandwich(sandwich:string):void{
        this.guest.entree.push(sandwich)
    }
-   @action public handleAddSalad = (salad) =>{
+   @action public handleAddSalad(salad:string):void{
        this.guest.entree.push(salad)
    }
-   @action public handleAddSide = (side) =>{
+   @action public handleAddSide(side: string):void{
        this.guest.sideOrder.push(side)
    }
-   @action public handleAddDessert = (treat) =>{
+   @action public handleAddDessert(treat:string):void{
        this.guest.dessert.push(treat)
    }
 
