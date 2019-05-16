@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from '@reach/router';
 import {inject, observer} from 'mobx-react';
+import { TypeStore} from '../../../store/Store'
 
 interface Props{
     guestNum: string
-    // Store: {
-    //     order: [];
-    //     }
     Store?: TypeStore
 }
 

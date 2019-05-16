@@ -5,15 +5,21 @@ import {observable, action} from 'mobx';
 export interface TypeStore{
     guestNumber : number;
 
-    guest : {
-        [drink : string]:string[]       
-    };
     // guest : {
-    //     drink : string[],
-    //     entree : string[],
-    //     sideOrder : string[],
-    //     dessert : string[]        
+    //     [key : string]:string[]
     // };
+    // guest : {
+    //     drink : string,
+    //     entree : string,
+    //     sideOrder : string,
+    //     dessert : string        
+    // };
+    guest : {
+        drink : string[],
+        entree : string[],
+        sideOrder : string[],
+        dessert : string[]        
+    };
 
 
     order: object[];
