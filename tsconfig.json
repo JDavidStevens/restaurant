@@ -7,8 +7,13 @@
     "sourceMap": true,
     "removeComments": true,
     "noEmit": true,
-    "strict": true,
-    "noImplicitAny": true,
+    // change below this line to true as you progresss
+    "strictNullChecks": false,
+    "strict": false,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": false,
+    "noImplicitAny": false,
+    // change above to true as you progress
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "lib": [
